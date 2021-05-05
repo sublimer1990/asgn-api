@@ -23,11 +23,13 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(express.static('public'));
 
-app.use('/asgn-api', assignmentRoute);
+app.use(assignmentRoute);
 
 app.use((req, res, next) => {
     res.status(404).send('Page not found, sorry!');
 });
+
+
 
 app.listen(PORT, () => {
     console.log(`server has started on ${PORT}`);
